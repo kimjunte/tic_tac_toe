@@ -5,7 +5,7 @@ import Board from "../Board";
  * A game of tic-tac-toe.
  */
 const Game = () => {
-    const [gameHistory, setGameHistory] = useState([{ squares: Array(9).fill(null) }]);
+    const [gameHistory, setGameHistory] = useState([{ squares: Array(9).fill(null) }]); // Start of game
     const [stepNumber, setStepNumber] = useState(0);
     const [xIsNext, setXisNext] = useState(true);
     const [winningLine, setWinningLine] = useState([]);
@@ -19,7 +19,7 @@ const Game = () => {
             [1, 4, 7],
             [2, 5, 8],
             [0, 4, 8],
-            [2, 4, 6],
+            [2, 4, 6]
         ];
 
         for (let i = 0; i < lines.length; i++) {

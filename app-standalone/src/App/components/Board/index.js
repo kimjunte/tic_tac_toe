@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Square from '../Square';
 
 /**
- * A board for the game of tic-tac-toe. A 3x3 square.
+ * A board for the game of tic-tac-toe.  A 3x3 square.
  */
 const Board = ({ squares, onClick, winningLine }) => {
     const renderSquare = (i) => {
@@ -38,12 +38,19 @@ const Board = ({ squares, onClick, winningLine }) => {
               {renderSquare(8)}
             </div>
         </div>
-    );
+    )
 };
 
 Board.propTypes = {
+    /**
+     *  The 1..9 array of squares to display
+     */
     squares: PropTypes.array.isRequired,
+    /**
+     *  The handler for when a square is clicked
+     */
     onClick: PropTypes.func,
+    // The array that contains the winning line information. For example [0, 1, 2]
     winningLine: PropTypes.array 
 };
 
