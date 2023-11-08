@@ -85,8 +85,13 @@ Please answer the following questions:
 With either the app-standalone or app-redux (**not both** - whichever you are comfortable with), please complete the following changes:
 
 1. Update the app so that is highlights the winning move.
+   Completed. Please use npm run
+
 2. Update the app so that it allows for a named player X and Y, and it keeps a league table of who won each game.
-3. If you get time, implement something that you think that the app could do and is cool. What other things would you change.
+
+3. If you get time, implement something that you think that the app could do and is cool. What other things would you change. 
+
+   I have skipped this exercise as I'm applying for a support engineer role and not a full stack developer role.
 
 ### Expectations
  * We don't want you to spend too long on this exercise, just the necessary amount of time to show your front-end and back-end skills. We expect it to take 1.5 hours if you have React experience, longer if you have no React experience. 

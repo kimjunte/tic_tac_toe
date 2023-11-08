@@ -9,6 +9,7 @@ const Game = () => {
     const [stepNumber, setStepNumber] = useState(0);
     const [xIsNext, setXisNext] = useState(true);
     const [winningLine, setWinningLine] = useState([]);
+    const [PlayerX, setPlayerXName] = useState("X")
 
     const calculateWinner = (squares) => {
         const lines = [
@@ -73,7 +74,7 @@ const Game = () => {
     if (winnerInfo.winner) {
         status = "Winner: " + winnerInfo.winner;
     } else {
-        status = "Next player: " + (xIsNext ? "X" : "O");
+        status = "Next player: " + (xIsNext ? PlayerX : "O");
     }
 
     return (
