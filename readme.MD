@@ -48,13 +48,37 @@ Please answer the following questions:
     
 1. Comparing the app-original and app-standalone code bases. The app-standalone code base has put each component in a separate file and directory structure.   
    * Why do you think that was done, what are the advantages / disadvantages?
+   Seperating the code into component allows for easier testing and also more orthgonal("module") code. Firstly since each component can be tested individually we can ensure it works as functionaly and check for race conditions in isolation before integrating other parts.
+
+   The code is more orthogonal, meaning that it won't influence another part of the code which is the case for some spagetti code. For example changing the Header should have nothing to do with changing the Board or how the Game works which is the reason why there was some seperations.
+
+   The modularity also allows the code to be more reuable as it is as simple as importanting to another file and share it company wide. I also personally feel it increases readability as well compared to the massive injex.js file in the app-original.
+
+   Since each module is isolated and can be tested serperately it also means that it is easier to colloborate. This is the same reason as orthogonal found in the pramattic programmer book but put simply. We arn't stepping on each others toes. And if the new feature was implemented and new tests were written in the feature branch than it should be 'safe' to deploy to production. (Provided it's bee tagged and tests)
+
+   I'm trying my best to think about a disadvantage as I always want to keep things more DRY and 'modularlise' as much as possible. In any code I do. I think the only disadvantage I can think of is the inital set up to design the code modularly. I found React does the componnent archieture quite intuitvely but there also needs to be some work on directory structure and tell company wide how we strucutre things. Solution: Documentations/meetings + proper archiecture discussions before implementing v1.
+
+   Another disadvantage I found when using React to code in this was, i found I have to keep passing down variables (props) to each componenet and some re render issues due to poor state management.
+
 
 2. Thinking about a production ready app, what do you think is missing from all the examples? *Hint: the square component in the standalone app has one*
 
+   * I am a big adovacte for test as I have come from an automated testing background. Although I don't have personal/professional expereince of using Jest myself I can tell it looks roughly like a unit test. 'Simulating' some button presses and allows to find some 'expected' value. Looks very similar to pytest in feel except in syntax obviously. The importance with unit test is that it can run on CI/CD pipelines and find bugs quickly. Honestly - i have no idea how I wrote code before testing. It allows debugging to happen during the development life style instead of discovering in production or end to end testing. This is not to say all tests can be solved by unit tests. Some bugs can only be found in integration tests and end to end testing with live environment. The job of the automated tester is to 'simulate' the testing environemnt to its bare components just enought to recreate the bug and then ensure it never happens again and added to regression testing ( if ci/cd -> just add it to the pipeline before merging back to branch. Runs on every feature branch and/or every merge and tag) to ensure nothing is brokern.
+
 3. Are you familiar with Redux? If so what is the basic idea behind it and what would be a good case for using it?
 
+   I am not familiar with Redux but have seen the word when developping a little on React. A quick googletells me it's easy to test and behave consistently in different environemnts. Brillant, so with redux we can simlulate the same environement in development as well a production. Which fundamentally solves the 'it works on my computer' problem that traditional developers have. I believe the ownership of a feature and bug goes through the whole life cycle of the release process and thus happy the redux is used to faciliate this.
+
 4. *If you are interested in the full-stack role* Please take a look at the partial implementation of an express routes in backend/router.js.
-    * Thinking of a production application, what issues do you see with this code? *List as many as you like* 
+    * Thinking of a production application, what issues do you see with this code? *List as many as you like*
+
+    I'm applying for a support engineer role but I'll do my best to answer it anyway as I think I know the answer. The first thing I saw was the connection of the mogodb. The information is recieved via an environment variable which is feasiable and completely normal. However there are no quick checks to work out if the url is empty. In development env the mongdb env variable might not be assigned for some reason or unreachable and thus a problem could happen in connecting with the mongodb database. 
+
+    We also seems to be query the logs and outputting the exact query of the SQL database in production. Which means a hacker can get information on how to query how database.
+
+    The return of the query product object should do some error handing. Error handing on connection or some maybe not even json format.
+
+
 
 ### Coding Challenges
 

@@ -1,25 +1,19 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import "./styles.css"
 
-/**
- * A square in the game of tic tac toe.   Can be clicked or the square can contain a value.
- */
-const Square = ({onClick, value}) => (
-    <button className="square" onClick={onClick}>
-        {value}
-    </button>
-);
+const Square = ({ value, onClick, isWinningSquare }) => {
+    const className = `square ${isWinningSquare ? 'square--winning' : ''}`; // if winning square, add a className 'square--winning'
+
+    return (
+        <button className={className} onClick={onClick}>
+            {value}
+        </button>
+    );
+};
 
 Square.propTypes = {
-    /**
-     *  The handler for when a square is clicked
-     */
-    onClick: PropTypes.func,
-
-    /**
-     *  The value to put in the square
-     */
-    value: PropTypes.string
+    value: PropTypes.string,
+    onClick: PropTypes.func.isRequired,
+    isWinningSquare: PropTypes.bool
 };
 
 export default Square;
