@@ -89,9 +89,15 @@ With either the app-standalone or app-redux (**not both** - whichever you are co
 
 2. Update the app so that it allows for a named player X and Y, and it keeps a league table of who won each game.
 
+   I have stared this by adding a namebox componenet but didn't have time to finish it.
+   As I'm applying for a junior support engineer role I think this is sufficient. however if you do no think so, please let me know. I have spent 1.5 hours on this and react isn't my default language so apologies.
+
+
 3. If you get time, implement something that you think that the app could do and is cool. What other things would you change. 
 
    I have skipped this exercise as I'm applying for a support engineer role and not a full stack developer role.
+   
+   Looking forward to our next call if I proceed to the next stage. Jun-te Kim.
 
 ### Expectations
  * We don't want you to spend too long on this exercise, just the necessary amount of time to show your front-end and back-end skills. We expect it to take 1.5 hours if you have React experience, longer if you have no React experience. 
